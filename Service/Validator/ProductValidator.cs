@@ -8,6 +8,7 @@ using System.Threading.Tasks;
 
 namespace Service.Validator
 {
+    // Validação das propriedades de produtos.
     public class ProductValidator : AbstractValidator<Product>
     {
         public ProductValidator()

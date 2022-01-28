@@ -9,6 +9,7 @@ using static Domain.Models.Output;
 
 namespace Service.ViewModels
 {
+    // Representa a model de saída.
     public class OutputViewModel
     {
         [JsonPropertyName("OutputInput")]

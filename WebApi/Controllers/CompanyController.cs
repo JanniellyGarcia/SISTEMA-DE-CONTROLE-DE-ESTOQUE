@@ -64,6 +64,7 @@ namespace WebApi.Controllers
         {
             return Execute(() => _baseProductService.Get());
         }
+
         //selecionar aempresa pelo nome:
         [HttpGet("get/{nameCompany}")]
         public IActionResult GetCompanyByName(string nameCompany)
@@ -84,7 +85,7 @@ namespace WebApi.Controllers
             return Execute(() => _baseProductService.GetById(id));
         }
 
-        //Método de executar os outros métodos e retornar o resultado.
+        //Método de executar os outros métodos e retornar exceções.
         private IActionResult Execute(Func<object> func)
         {
             try

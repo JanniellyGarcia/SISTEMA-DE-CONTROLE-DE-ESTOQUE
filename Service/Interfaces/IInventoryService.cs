@@ -8,8 +8,10 @@ using System.Threading.Tasks;
 
 namespace Service.Interfaces
 {
+    // Interface de saerviço de estoque.
     public interface IInventoryService
     {
+        // Chamada para o método de listar os estoques.
         IEnumerable<InventoryViewModel> GetInventories();
        
     }

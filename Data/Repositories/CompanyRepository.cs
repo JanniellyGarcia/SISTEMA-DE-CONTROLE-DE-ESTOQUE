@@ -9,12 +9,14 @@ using System.Threading.Tasks;
 
 namespace Data.Repositories
 {
+    // Repositório de Empresa.
     public class CompanyRepository : BaseRepository<Company>, ICompanyRepository
     {
         public CompanyRepository(SqlContext sqlContext) : base(sqlContext)
         {
         }
 
+        // Implemetação do método que lista todos as empresas.
         public IEnumerable<Company> GetCompany()
         {
             var obj = CurrentSet
@@ -22,6 +24,7 @@ namespace Data.Repositories
             return obj;
         }
 
+        //Implemetação do método que retorna a empresa pelo seu id.
         public Company GetCompanyById(int id)
         {
             var obj = CurrentSet
@@ -30,6 +33,7 @@ namespace Data.Repositories
             return obj;
         }
 
+        //Implemetação do método que retorna a empresa pelo seu nome.
         public Company GetCompanyByName(string name)
         {
            

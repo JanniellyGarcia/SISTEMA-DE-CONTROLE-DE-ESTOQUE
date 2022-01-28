@@ -9,6 +9,7 @@ using System.Threading.Tasks;
 
 namespace Data.Mappings
 {
+    // Mapeado entidade de estoque.
     public class InventoryMap : IEntityTypeConfiguration<Inventory>
     {
         public void Configure(EntityTypeBuilder<Inventory> builder)

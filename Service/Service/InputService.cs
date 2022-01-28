@@ -11,6 +11,7 @@ using System.Threading.Tasks;
 
 namespace Service.Service
 {
+    // Service de Entrada (regras de negócio)
     public class InputService : IInputService 
     {
         private readonly IBaseRepository<Input> _baseRepository;
@@ -28,23 +29,20 @@ namespace Service.Service
             _mapper = mapper;
             _inputRepository = inputRepository;
         }
+        // Método de listar.
         public IEnumerable<InputViewModel> GetInputs()
         {
             var input = _inputRepository.GetInput();
             return _mapper.Map<IEnumerable<InputViewModel>>(input);
         }
+
         // Só podemos cadastrar entradas com valores maiores que zero.
         public bool validationQuantity(Input input)
         {
             if (input.Quantity > 0) { return true; } else { return false; }   
         }
-        // Guardar quantas entradas foram deletadas afim de influenciar de subtratir em estoque.
-        public int QuantityDelete(int obj)
-        {
-            int quantity = obj;
-            return quantity;
-        }
-        //verifica se o produto que se deseja inserir já existe no estoque, se sim, a quantidade será atualizada, se não, será criado um novo estoque.
+
+        // Verifica se o produto que se deseja inserir já existe no estoque, se sim, a quantidade será atualizada, se não, será criado um novo estoque.
         public bool CheckWhenAddQuantityInInventory(Input input)
         {
             var inventory = _inventoryRepository.GetInventory();
@@ -60,7 +58,7 @@ namespace Service.Service
             return false;   
         }
 
-        //retorna o produto da entrada pelo nome.
+        // Retorna o produto da entrada pelo nome.
         public Product GetProductByNameInInput(string nameProduct)
         {
             var product = _productRepository.GetProductByName(nameProduct.ToUpper());

@@ -9,6 +9,7 @@ using System.Threading.Tasks;
 
 namespace Data.Context
 {
+    
     public class SqlContext : DbContext
     {
         public SqlContext(DbContextOptions<SqlContext> options) : base(options)

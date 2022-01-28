@@ -10,12 +10,13 @@ using System.Threading.Tasks;
 
 namespace Data.Repositories
 {
+    //Repositório de Estoque.
     public class InventoryRepository : BaseRepository<Inventory>, IInventoryRepository
     {
         public InventoryRepository(SqlContext sqlContext) : base(sqlContext)
         {
         }
-
+        // Implementação do método de Listar os estoques existentes.
         public IEnumerable<Inventory> GetInventory()
         {
             var obj = CurrentSet
@@ -24,6 +25,7 @@ namespace Data.Repositories
                 
         }
 
+        // Impelemtação do método de buscar o estoque pelo seu Id.
         public Inventory GetInventoryById(int id)
         {
             var obj = CurrentSet

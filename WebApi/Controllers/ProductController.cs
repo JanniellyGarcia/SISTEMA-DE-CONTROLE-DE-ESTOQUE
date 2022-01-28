@@ -21,7 +21,7 @@ namespace WebApi.Controllers
             _productService = productService;
             _productRepository = productRepository;
         }
-        // Criar o produto
+        // Criar o Produto
         [HttpPost]
         [Route("CreateProduct")]
         public IActionResult Create([FromBody] Product product)
@@ -41,6 +41,7 @@ namespace WebApi.Controllers
 
            
         }
+
         // Atualizar o produto
         [HttpPut]
         public IActionResult Update([FromBody] Product product)
@@ -59,7 +60,6 @@ namespace WebApi.Controllers
             }
         }
 
-
         // Método de deletar um produto pelo seu id.
         [HttpDelete("{id}")]
         public IActionResult Delete(int id)
@@ -76,14 +76,14 @@ namespace WebApi.Controllers
             return new NoContentResult();
         }
 
-        //Selecionar os produtos
+        // Selecionar os produtos
         [HttpGet]
         public IActionResult Get()
         {
             return Execute(() => _baseProductService.Get());
         }
 
-        //selecionar o produto pelo nome:
+        // Selecionar o produto pelo nome:
         [HttpGet("/{name}")]
         public IActionResult GetByName(string name)
         {
@@ -102,8 +102,8 @@ namespace WebApi.Controllers
 
             return Execute(() => _baseProductService.GetById(id));
         }
-        
-        //Método de executar os outros métodos e retornar o resultado.
+
+        //Método de executar os outros métodos e retornar exceções.
         private IActionResult Execute(Func<object> func)
         {
             try

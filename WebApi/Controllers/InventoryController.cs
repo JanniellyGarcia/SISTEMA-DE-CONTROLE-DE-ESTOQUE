@@ -56,7 +56,7 @@ namespace WebApi.Controllers
         }
 
 
-        //Método de executar os outros métodos e retornar o resultado.
+        //Método de executar os outros métodos e retornar exceções.
         private IActionResult Execute(Func<object> func)
         {
             try

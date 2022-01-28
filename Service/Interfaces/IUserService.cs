@@ -11,7 +11,10 @@ namespace Service.Interfaces
     // Interface de Serviço de usuário.
     public interface IUserService
     {
+        // Chamada para o método de listar os usuários.
         IEnumerable<UserViewModel> GetUser();
+
+        // Chamada para o método de verificação de usuário.
         User GetUserForLogin(string email, string senha);
     }
 }

@@ -67,7 +67,7 @@ namespace WebApi.Controllers
             return Execute(() => _outputService.GetProductByNameInOutput(name));
         }
 
-        //Método de executar os outros métodos e retornar o resultado.
+        //Método de executar os outros métodos e retornar exceções.
         private IActionResult Execute(Func<object> func)
         {
             try

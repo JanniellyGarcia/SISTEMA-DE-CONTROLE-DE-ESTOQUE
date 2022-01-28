@@ -7,6 +7,7 @@ using System.Threading.Tasks;
 
 namespace Service.ViewModels
 {
+    // representa a model de empresa.
     public class CompanyViewModel
     {
         [JsonPropertyName("IdCompany")]

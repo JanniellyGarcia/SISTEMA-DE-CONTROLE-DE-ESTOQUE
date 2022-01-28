@@ -8,6 +8,7 @@ using System.Threading.Tasks;
 
 namespace Service.Validator
 {
+    // Validação das propriedades de empresa.
     public class CompanyValidator : AbstractValidator<Company>
     {
         public CompanyValidator()

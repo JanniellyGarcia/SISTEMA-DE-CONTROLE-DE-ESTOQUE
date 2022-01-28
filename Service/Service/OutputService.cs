@@ -10,6 +10,7 @@ using System.Threading.Tasks;
 
 namespace Service.Service
 {
+    // Service de saída (regras de negócio)
     public class OutputService : IOutputService
     {
         private readonly IBaseRepository<Output> _baseRepository;
@@ -25,7 +26,7 @@ namespace Service.Service
             _mapper = mapper;
             _outputRepository = outputRepository;
         }
-
+        // Método de listar.
         public IEnumerable<OutputViewModel> GetOutput()
         {
             var output = _outputRepository.GetOutput();
@@ -93,6 +94,7 @@ namespace Service.Service
             return false;
         }
         
+        // Método de buscar os produtos que saíram pelo seu nome.
         public Product GetProductByNameInOutput(string nameProduct)
         {
             var product = _productRepository.GetProductByName(nameProduct.ToUpper());

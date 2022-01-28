@@ -10,13 +10,14 @@ using System.Threading.Tasks;
 
 namespace Data.Repositories
 {
+    // Repositório de entrada.
     public class InputRepository : BaseRepository<Input>, IInputRepository
     {
         public InputRepository(SqlContext sqlContext) : base(sqlContext)
         {
         }
 
-        //Retorna todos as entradas do BD.
+        // Implemetação do método que retorna todos as entradas do BD.
         public IEnumerable<Input> GetInput()
         {
             var obj = CurrentSet
@@ -26,7 +27,7 @@ namespace Data.Repositories
             return obj;
         }
 
-        //Retorna uma entrada pelo seu id.
+        // Implemetação do método que retorna uma entrada pelo seu id.
         public Input GetInputById(int id)
         {
             var obj = CurrentSet
@@ -35,7 +36,7 @@ namespace Data.Repositories
             return obj;
         }
 
-        //Retorna o produto da entrada pelo id.
+        // Implemetação do método que retorna o produto da entrada pelo id.
         public Input GetProductByIdInInput(int id)
         {
             var product = CurrentSet
@@ -44,7 +45,7 @@ namespace Data.Repositories
             return product;
         }
 
-        // Busca no banco de dados todo os produtos que entraram.
+        // Implemetação do método que busca no banco de dados todo os produtos que entraram.
         public IEnumerable<Product> GetProductsInInput()
         {
             var obj = CurrentSet

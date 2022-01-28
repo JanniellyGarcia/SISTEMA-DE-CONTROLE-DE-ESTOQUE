@@ -10,13 +10,13 @@ namespace Domain.Interfaces
     // Interface do Repositório de Empresa.
     public interface ICompanyRepository
     {
-        //listar todas as empresas
+        // Listar todas as empresas
         IEnumerable<Company> GetCompany();
 
-        //retornar a empresa pelo seu id
+        // Retornar a empresa pelo seu id
         Company GetCompanyById(int id); 
 
-        //retornar a empresa pelo seu nome.
+        // Retornar a empresa pelo seu nome.
         Company GetCompanyByName(string name);
 
 

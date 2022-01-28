@@ -7,6 +7,7 @@ using System.Threading.Tasks;
 
 namespace Service.AutoMapper
 {
+    // declaração do AutoMapper.
     public class AutoMapperProfile : Profile
     {
         public AutoMapperProfile()

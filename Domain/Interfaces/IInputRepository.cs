@@ -13,7 +13,7 @@ namespace Domain.Interfaces
         // Chamada para o método de listar todos os usuários.
         IEnumerable<Input> GetInput();
 
-        //Chamada para pegar a entrada pelo seu id.
+        // Chamada para pegar a entrada pelo seu id.
         Input GetInputById(int id);
 
         // retorna o produto na barra de pesquisa da página de entradas.

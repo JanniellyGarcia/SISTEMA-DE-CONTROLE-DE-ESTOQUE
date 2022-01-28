@@ -9,6 +9,7 @@ using System.Threading.Tasks;
 
 namespace Service.AutoMapper
 {
+    // Mapeamento de model e viewmodel
     public class InputProfile : Profile
     {
         public InputProfile()
