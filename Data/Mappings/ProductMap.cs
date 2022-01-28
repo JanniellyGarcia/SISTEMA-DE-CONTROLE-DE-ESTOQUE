@@ -9,6 +9,7 @@ using System.Threading.Tasks;
 
 namespace Data.Mappings
 {
+    // Mapeado entidade de produtos.
     public class ProductMap : IEntityTypeConfiguration<Product>
     {
         public void Configure(EntityTypeBuilder<Product> builder)

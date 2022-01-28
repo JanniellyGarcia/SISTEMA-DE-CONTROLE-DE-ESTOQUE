@@ -8,6 +8,7 @@ using System.Threading.Tasks;
 
 namespace Service.ViewModels
 {
+    // Representa a model de estoque.
     public class InventoryViewModel
     {
         // Indentificador de Estoque:

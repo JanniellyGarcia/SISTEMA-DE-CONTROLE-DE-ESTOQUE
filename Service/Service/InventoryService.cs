@@ -11,7 +11,7 @@ using System.Threading.Tasks;
 
 namespace Service.Service
 {
-
+    // Service de Estoque (regras de negócio)
     public class InventoryService : IInventoryService
     {
         private readonly IBaseRepository<Inventory> _baseRepository;
@@ -30,6 +30,7 @@ namespace Service.Service
             _mapper = mapper;
             _inputRepository = inputRepository;
         }
+        // Método de listar.
         public IEnumerable<InventoryViewModel> GetInventories()
         {
 

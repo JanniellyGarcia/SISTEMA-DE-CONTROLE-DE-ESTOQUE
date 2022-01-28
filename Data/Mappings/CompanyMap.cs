@@ -9,6 +9,7 @@ using System.Threading.Tasks;
 
 namespace Data.Mappings
 {
+    // Mapeado entidade de Empresa.
     public class CompanyMap : IEntityTypeConfiguration<Company>
     {
         public void Configure(EntityTypeBuilder<Company> builder)

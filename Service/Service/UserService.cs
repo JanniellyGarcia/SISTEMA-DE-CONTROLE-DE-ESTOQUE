@@ -11,6 +11,7 @@ using System.Text;
 
 namespace Service.Service
 {
+    // Service de usuário (regras de negócio)
     public class UserService : IUserService
     {
         private readonly IBaseRepository<User> _baseRepository;
@@ -55,7 +56,7 @@ namespace Service.Service
             return strBuilder.ToString();
 
         }
-
+        // método de adicionar.
         public User Add<TValidator>(User obj) where TValidator : AbstractValidator<User>
         {
             Validate(obj, Activator.CreateInstance<TValidator>());
@@ -64,12 +65,14 @@ namespace Service.Service
             return obj;
         }
 
+        // método de listar.
         public IEnumerable<UserViewModel> GetUser()
         {
             var user = _userRepository.GetUser();
             return _mapper.Map<IEnumerable<UserViewModel>>(user); //mapeado objetos de model para viewmodel
         }
 
+        // método de autenticação.
         public User GetUserForLogin(string email, string password)
         {
             var passwordHash = GerarMD5(password);

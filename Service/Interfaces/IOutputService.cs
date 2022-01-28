@@ -11,18 +11,19 @@ namespace Domain.Interfaces
     // Interface de Serviço de saída;
     public interface IOutputService
     {
+        // Chamada para o método de listar as saídas.
         IEnumerable<OutputViewModel> GetOutput();
 
-        //Validação de saída:
+        // Validação de saída:
         public bool OutputValidation(Output output);
 
-        //valiação de quantidade(>0):
+        // Valiação de quantidade(>0):
         public bool ValidationQuantity(Output output);
 
-        // Validação da quantidade e, estoque (verifica se a quantidade em estoque é sufuciente para realizar uma saída)
+        // Validação da quantidade em estoque (verifica se a quantidade em estoque é sufuciente para realizar uma saída)
         public bool ValidationQuantityInInventory(Output output);
 
-        //retorna o produto da saída pelo nome.
+        // Retorna o produto da saída pelo nome.
         public Product GetProductByNameInOutput(string nameProduct);
 
     }

@@ -10,12 +10,14 @@ using System.Threading.Tasks;
 
 namespace Data.Repositories
 {
+    // Repositório de Saída.
     public class OutputRepository : BaseRepository<Output>, IOutputRepository
     {
         public OutputRepository(SqlContext sqlContext) : base(sqlContext)
         {
         }
 
+        // Implementação do método de listar todos as saídas.
         public IEnumerable<Output> GetOutput()
         {
             var obj = CurrentSet
@@ -25,6 +27,7 @@ namespace Data.Repositories
             return obj;
         }
 
+        // Implementação do método de buscar a entrada pelo seu id.
         public Output GetOutputById(int id)
         {
             var obj = CurrentSet
@@ -33,7 +36,7 @@ namespace Data.Repositories
             return obj;
         }
  
-        
+        // Implemnetação do método que buscar por um produto pelo seu nome dentro da entidade de saída.
         public Output GetProductByIdInOutput(int id)
         {
             var product = CurrentSet

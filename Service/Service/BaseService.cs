@@ -9,6 +9,7 @@ using System.Threading.Tasks;
 
 namespace Service.Service
 {
+    // Service base (regras de negócio)
     public class BaseService<TEntity> : IBaseService<TEntity> where TEntity : BaseEntity
     {
         private readonly IBaseRepository<TEntity> _baseRepository;

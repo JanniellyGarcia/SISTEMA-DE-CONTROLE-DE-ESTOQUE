@@ -10,7 +10,7 @@ namespace Domain.Interfaces
     //Interface do Repositório de Saída.
     public interface IOutputRepository
     {
-        //Lista todos as Saídas.
+        // Lista todos as Saídas.
         IEnumerable<Output> GetOutput();
 
         //Pega a Saída pelo Id indicado.

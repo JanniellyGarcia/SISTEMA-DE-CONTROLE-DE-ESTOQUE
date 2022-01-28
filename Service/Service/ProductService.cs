@@ -11,6 +11,7 @@ using System.Threading.Tasks;
 
 namespace Service.Service
 {
+    // Service de Produtos (regras de negócio)
     public class ProductService : IProductService
     {
         private readonly IBaseRepository<Product> _baseRepository;
@@ -22,6 +23,7 @@ namespace Service.Service
             _mapper = mapper;
             _productRepository = productRepository;
         }
+        // método de listar.
         public IEnumerable<ProductViewModel> GetProduct()
         {
             var product = _productRepository.GetProduct();
@@ -29,7 +31,7 @@ namespace Service.Service
 
         }
 
-        // Não será possível adicionar produtos com o menos nome a menos que o id seja iguail (facilitar a edição, pois nela, o id não muda).
+        // Não será possível adicionar produtos com o menos nome a menos que o id seja igual (facilitar a edição, pois nela, o id não muda).
         public bool ValidationAddProduct(string name, int id)
         {
            var CheckByName = _productRepository.GetProductByName(name.ToUpper());

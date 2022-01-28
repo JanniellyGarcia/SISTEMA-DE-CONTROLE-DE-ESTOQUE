@@ -9,6 +9,7 @@ using System.Threading.Tasks;
 
 namespace Data.Mappings
 {
+    // Mapeado entidade de usuário.
     public class UserMap : IEntityTypeConfiguration<User>
     {
        

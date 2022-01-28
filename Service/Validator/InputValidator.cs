@@ -8,6 +8,7 @@ using System.Threading.Tasks;
 
 namespace Service.Validator
 {
+    // Validação das propriedades de saída.
     public class InputValidator : AbstractValidator<Input>
     {
         public InputValidator()

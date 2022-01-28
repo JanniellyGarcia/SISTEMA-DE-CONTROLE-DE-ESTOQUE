@@ -9,6 +9,7 @@ using System.Threading.Tasks;
 
 namespace Data.Mappings
 {
+    // Mapeado entidade de Entrada.
     public class InputMap : IEntityTypeConfiguration<Input>
     {
         public void Configure(EntityTypeBuilder<Input> builder)

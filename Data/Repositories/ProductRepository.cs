@@ -9,12 +9,14 @@ using System.Threading.Tasks;
 
 namespace Data.Repositories
 {
+    // Repositório de Produto.
     public class ProductRepository : BaseRepository<Product>, IProductRepository
     {
         public ProductRepository(SqlContext context) : base(context)
         {
 
         }
+        // Implementação do método de listar os produtos qu existem nos bancos.
         public IEnumerable<Product> GetProduct()
         {
             
@@ -23,6 +25,7 @@ namespace Data.Repositories
             return obj;
         }
 
+        // Implementação do método de buscar o produto pelo seu id.
         public Product GetProductById(int Id)
         {
             var obj = CurrentSet
@@ -31,6 +34,7 @@ namespace Data.Repositories
             return obj;
         }
 
+        // Implementação do método de buscar o porduto pelo seu nome.
         public Product GetProductByName(string NameProduct)
         {
             var obj = CurrentSet

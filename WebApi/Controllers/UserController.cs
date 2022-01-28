@@ -21,6 +21,7 @@ namespace WebApi.Controllers
             _userService = userService;
             _baseUserService = baseUserService;
         }
+
         // Criar o usuário
         [HttpPost]
         [Route("CreateUser")]
@@ -33,51 +34,7 @@ namespace WebApi.Controllers
             return Execute(() => _baseUserService.Add<UserValidator>(user).Id);
         }
 
-        // Atualizar o usuário
-        [HttpPut]
-        public IActionResult Update([FromBody] User user)
-        {
-            if (user == null)
-                return NotFound();
-
-            return Execute(() => _baseUserService.Update<UserValidator>(user));
-        }
-
-
-        // Método de deletar um usuário pelo seu id.
-        [HttpDelete("{id}")]
-        public IActionResult Delete(int id)
-        {
-            if (id == 0)
-                return NotFound();
-
-            Execute(() =>
-            {
-                _baseUserService.Delete(id);
-                return true;
-            });
-
-            return new NoContentResult();
-        }
-
-        //Selecionar usuário
-        [HttpGet]
-        public IActionResult Get()
-        {
-            return Execute(() => _baseUserService.Get());
-        }
-
-        // Método de selecionar um usuário pelo seu id.
-        [HttpGet("{id}")]
-        public IActionResult Get(int id)
-        {
-            if (id == 0)
-                return NotFound();
-
-            return Execute(() => _baseUserService.GetById(id));
-        }
-
-        //Método de executar os outros métodos e retornar o resultado.
+        //Método de executar os outros métodos e retornar exceções.
         private IActionResult Execute(Func<object> func)
         {
             try

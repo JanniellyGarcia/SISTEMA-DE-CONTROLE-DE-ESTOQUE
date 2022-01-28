@@ -8,6 +8,7 @@ using System.Threading.Tasks;
 
 namespace Service.Validator
 {
+    // Validação das propriedades de usuário.
     public class UserValidator : AbstractValidator<User>
     {
         public UserValidator()

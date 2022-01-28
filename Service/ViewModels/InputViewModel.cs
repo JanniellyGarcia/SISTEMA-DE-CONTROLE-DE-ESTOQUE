@@ -8,6 +8,7 @@ using System.Threading.Tasks;
 
 namespace Service.ViewModels
 {
+    // Representa a model de entrada.
     public class InputViewModel
     {
         [JsonPropertyName("IdInput")]

@@ -9,6 +9,7 @@ using System.Threading.Tasks;
 
 namespace Data.Mappings
 {
+    // Mapeado entidade de Saída.
     public class OutputMap : IEntityTypeConfiguration<Output>
     {
         public void Configure(EntityTypeBuilder<Output> builder)

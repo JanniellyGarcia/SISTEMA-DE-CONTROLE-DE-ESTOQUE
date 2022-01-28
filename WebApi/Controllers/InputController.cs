@@ -27,7 +27,7 @@ namespace WebApi.Controllers
 
         // Criar a entrada.
         [HttpPost]
-        [Route("CreateUser")]
+        [Route("CreateInput")]
         public IActionResult Create([FromBody] Input input)
         {
             var aux = _inputService.validationQuantity(input);
@@ -84,7 +84,7 @@ namespace WebApi.Controllers
             return Execute(() => _baseInputService.GetById(id));
         }
 
-        //Método de executar os outros métodos e retornar o resultado.
+        //Método de executar os outros métodos e retornar exceções.
         private IActionResult Execute(Func<object> func)
         {
             try

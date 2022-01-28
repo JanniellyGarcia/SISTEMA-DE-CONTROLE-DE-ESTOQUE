@@ -8,6 +8,7 @@ using System.Threading.Tasks;
 
 namespace Service.Validator
 {
+    // Validação das propriedades de estoque.
     public class InventoryValidator : AbstractValidator<Inventory>
     {
         public InventoryValidator()

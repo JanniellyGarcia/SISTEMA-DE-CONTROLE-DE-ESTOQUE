@@ -9,12 +9,14 @@ using System.Threading.Tasks;
 
 namespace Data.Repositories
 {
+    //Repoitório de usuário.
     public class UserRepository : BaseRepository<User>, IUserRepository
     {
         public UserRepository(SqlContext context) : base(context)
         {
 
         }
+        // Implementação do método de autenticação.
         public User GetAllAuthentication(string emailAut, string passwordAut)
         {
             var obj = CurrentSet
@@ -23,6 +25,7 @@ namespace Data.Repositories
             return obj;
         }
 
+        // Implementação do método de buscar o usuário pelo id no banco.
         public User GetById(int Id)
         {
             var obj = CurrentSet
@@ -31,6 +34,7 @@ namespace Data.Repositories
             return obj;
         }
 
+        // Implementação de método de bsucar todos os usuários existentes no banco.
         public IEnumerable<User> GetUser()
         {
             var obj = CurrentSet

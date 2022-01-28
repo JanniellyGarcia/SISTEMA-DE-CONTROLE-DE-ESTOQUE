@@ -5,6 +5,7 @@ using Microsoft.Extensions.DependencyInjection;
 
 namespace WebApi.Configuration
 {
+    // Configuração do banco de dados.
     public static class DatabaseConfig
     {
      

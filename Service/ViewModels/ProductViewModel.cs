@@ -7,6 +7,7 @@ using System.Threading.Tasks;
 
 namespace Service.ViewModels
 {
+    // Representação da model de produto.
     public class ProductViewModel
     {
         [JsonPropertyName("IdProduct")]
