@@ -1,5 +1,6 @@
 ﻿using Domain.Interfaces;
 using Domain.Models;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Service.Interfaces;
 using Service.Validator;
@@ -7,6 +8,7 @@ using System;
 
 namespace WebApi.Controllers
 {
+    [AllowAnonymous]
     [Route("api/[controller]")]
     [ApiController]
     public class CompanyController : ControllerBase
@@ -82,7 +84,7 @@ namespace WebApi.Controllers
             if (id == 0)
                 return NotFound();
 
-            return Execute(() => _baseProductService.GetById(id));
+            return Execute(() => _companytRepository.GetCompanyById(id));
         }
 
         //Método de executar os outros métodos e retornar exceções.

@@ -43,7 +43,7 @@ namespace Service.Service
         public bool ValidationQuantityInInventory(Output output)
         {
             bool aux = false;
-            var obj = _inventoryRepository.GetInventory();
+            var obj = _inventoryRepository.Get();
             foreach (var item in obj)
             {
                 if (item.ProductId == output.ProductId && item.CompanyId == output.CompanyId)
@@ -63,7 +63,7 @@ namespace Service.Service
 
         public bool OutputValidation(Output output)
         {
-            var obj = _inventoryRepository.GetInventory();
+            var obj = _inventoryRepository.Get();
             foreach (var item in obj)
             {
                 if (item.ProductId == output.ProductId && item.CompanyId == output.CompanyId) // Verifica se existe o estoque.
@@ -95,9 +95,13 @@ namespace Service.Service
         }
         
         // Método de buscar os produtos que saíram pelo seu nome.
-        public Product GetProductByNameInOutput(string nameProduct)
+        public Product GetProductByNameInOutput(string name)
         {
-            var product = _productRepository.GetProductByName(nameProduct.ToUpper());
+            var product = _productRepository.GetProductByName(name.ToUpper());
+            if (product == null)
+            {
+                return null;
+            }
             var answer = _outputRepository.GetProductByIdInOutput(product.IdProduct);
             if (answer == null) { return null; } else { return product; }
 

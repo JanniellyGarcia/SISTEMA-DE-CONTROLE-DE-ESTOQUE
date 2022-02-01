@@ -34,7 +34,7 @@ namespace Service.Service
         public IEnumerable<InventoryViewModel> GetInventories()
         {
 
-            var inventory = _inventoryRepository.GetInventory();
+            var inventory = _inventoryRepository.Get();
             return _mapper.Map<IEnumerable<InventoryViewModel>>(inventory);
         }
 

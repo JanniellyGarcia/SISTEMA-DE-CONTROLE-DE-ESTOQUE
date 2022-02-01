@@ -11,7 +11,7 @@ namespace Domain.Interfaces
     public interface IInventoryRepository 
     {
         // lista todos os estoques existentes.
-        IEnumerable<Inventory> GetInventory();
+        IEnumerable<Inventory> Get();
 
         // Retorna um estoque pelo id passado.
         Inventory GetInventoryById(int id);    

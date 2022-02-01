@@ -18,7 +18,7 @@ namespace Data.Repositories
         {
         }
         // Implementação do método de Listar os estoques existentes.
-        public IEnumerable<Inventory> GetInventory()
+        public IEnumerable<Inventory> Get()
         {
             var obj = CurrentSet
                 .Include(x => x.Product_)

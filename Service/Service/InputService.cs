@@ -45,7 +45,7 @@ namespace Service.Service
         // Verifica se o produto que se deseja inserir já existe no estoque, se sim, a quantidade será atualizada, se não, será criado um novo estoque.
         public bool CheckWhenAddQuantityInInventory(Input input)
         {
-            var inventory = _inventoryRepository.GetInventory();
+            var inventory = _inventoryRepository.Get();
             foreach (var item in inventory)
             {
                 if (item.ProductId == input.ProductId && item.CompanyId == input.CompanyId)

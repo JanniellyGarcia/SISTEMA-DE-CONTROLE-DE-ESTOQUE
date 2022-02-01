@@ -1,12 +1,13 @@
 ﻿using Domain.Interfaces;
 using Domain.Models;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Service.Validator;
 using System;
 
 namespace WebApi.Controllers
 {
-
+    [AllowAnonymous]
     [Route("api/[controller]")]
     [ApiController]
     public class OutputController : ControllerBase  
@@ -44,7 +45,7 @@ namespace WebApi.Controllers
         [HttpGet]
         public IActionResult Get()
         {
-            return Execute(() => _baseOutputService.Get());
+            return Execute(() => _outputRepository.GetOutput());
         }
 
         // Método de selecionar uma entrada pelo seu id.
@@ -54,7 +55,7 @@ namespace WebApi.Controllers
             if (id == 0)
                 return NotFound();
 
-            return Execute(() => _baseOutputService.GetById(id));
+            return Execute(() => _outputRepository.GetOutputById(id));
         }
 
         // Método de selecionar uma entrada pelo seu nome.

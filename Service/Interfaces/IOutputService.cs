@@ -24,7 +24,7 @@ namespace Domain.Interfaces
         public bool ValidationQuantityInInventory(Output output);
 
         // Retorna o produto da saída pelo nome.
-        public Product GetProductByNameInOutput(string nameProduct);
+        public Product GetProductByNameInOutput(string name);
 
     }
 }

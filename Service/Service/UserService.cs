@@ -74,14 +74,10 @@ namespace Service.Service
 
         // método de autenticação.
         public User GetUserForLogin(string email, string password)
-        {
-            var passwordHash = GerarMD5(password);
-
-            var obj = _userRepository.GetAllAuthentication(email, passwordHash);
-            if (obj == null)
-                return null;
-
+        {  
+            var obj = _userRepository.GetAllAuthentication(email, password);
             return obj;
+            
         }
     }
 }

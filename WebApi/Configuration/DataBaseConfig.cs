@@ -5,17 +5,15 @@ using Microsoft.Extensions.DependencyInjection;
 
 namespace WebApi.Configuration
 {
-    // Configuração do banco de dados.
-    public static class DatabaseConfig
+    public static class DataBaseConfig
     {
-     
+
         public static void AddDatabaseConfig(this IServiceCollection services, IConfiguration configuration)
         {
             services.AddDbContext<SqlContext>(options => options.UseSqlServer(configuration.GetConnectionString("ConexaoDB")));
-            
+
 
 
         }
-
     }
 }

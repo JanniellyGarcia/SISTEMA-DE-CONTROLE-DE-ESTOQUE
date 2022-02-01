@@ -1,5 +1,6 @@
 ﻿using Domain.Interfaces;
 using Domain.Models;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Service.Interfaces;
 using Service.Validator;
@@ -7,6 +8,7 @@ using System;
 
 namespace WebApi.Controllers
 {
+    [AllowAnonymous]
     [Route("api/[controller]")]
     [ApiController]
     public class ProductController : ControllerBase
@@ -22,6 +24,7 @@ namespace WebApi.Controllers
             _productRepository = productRepository;
         }
         // Criar o Produto
+  
         [HttpPost]
         [Route("CreateProduct")]
         public IActionResult Create([FromBody] Product product)
@@ -43,6 +46,7 @@ namespace WebApi.Controllers
         }
 
         // Atualizar o produto
+      
         [HttpPut]
         public IActionResult Update([FromBody] Product product)
         {
@@ -61,6 +65,7 @@ namespace WebApi.Controllers
         }
 
         // Método de deletar um produto pelo seu id.
+      
         [HttpDelete("{id}")]
         public IActionResult Delete(int id)
         {
@@ -77,6 +82,7 @@ namespace WebApi.Controllers
         }
 
         // Selecionar os produtos
+     
         [HttpGet]
         public IActionResult Get()
         {
@@ -84,6 +90,7 @@ namespace WebApi.Controllers
         }
 
         // Selecionar o produto pelo nome:
+        
         [HttpGet("/{name}")]
         public IActionResult GetByName(string name)
         {
@@ -94,6 +101,7 @@ namespace WebApi.Controllers
         }
 
         // Método de selecionar um produto pelo seu id.
+      
         [HttpGet("{id}")]
         public IActionResult Get(int id)
         {

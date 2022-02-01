@@ -6,10 +6,13 @@ using Microsoft.AspNetCore.Mvc;
 using Service.Interfaces;
 using Service.Validator;
 using System;
+using System.Threading.Tasks;
+using WebApi.Configuration;
 using RouteAttribute = Microsoft.AspNetCore.Mvc.RouteAttribute;
 
 namespace WebApi.Controllers
-{ 
+{
+
     [Route("api/[controller]")]
     [ApiController]
     public class UserController : ControllerBase
@@ -21,7 +24,28 @@ namespace WebApi.Controllers
             _userService = userService;
             _baseUserService = baseUserService;
         }
+        [AllowAnonymous]
+        [HttpPost]
+        [Route("login")]
+        public async Task<ActionResult<dynamic>> Authenticate([FromBody] User model)
+        {
 
+
+            var user = _userService.GetUserForLogin(model.Email, model.Password);
+
+            if (user == null)
+                return NotFound(new { message = "Usuário ou senha inválidos" });
+
+            var token = TokenService.GenerateToken(user);
+
+            user.Password = "";
+
+            return new
+            {
+                user = user,
+                token = token
+            };
+        }
         // Criar o usuário
         [HttpPost]
         [Route("CreateUser")]
@@ -32,6 +56,11 @@ namespace WebApi.Controllers
 
 
             return Execute(() => _baseUserService.Add<UserValidator>(user).Id);
+        }
+        [HttpGet]
+        public IActionResult Get()
+        {
+            return Execute(() => _baseUserService.Get());
         }
 
         //Método de executar os outros métodos e retornar exceções.

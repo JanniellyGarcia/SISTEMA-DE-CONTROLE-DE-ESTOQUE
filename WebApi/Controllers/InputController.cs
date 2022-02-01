@@ -1,5 +1,6 @@
 ﻿using Domain.Interfaces;
 using Domain.Models;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Service.Interfaces;
 using Service.Validator;
@@ -7,6 +8,7 @@ using System;
 
 namespace WebApi.Controllers
 {
+    [AllowAnonymous]
     [Route("api/[controller]")]
     [ApiController]
     public class InputController : ControllerBase   
@@ -16,9 +18,11 @@ namespace WebApi.Controllers
         private IInputService _inputService;
         private IInputRepository _inputRepository;
         private IInventoryRepository _inventoryRepository;  
+        private IProductRepository _productRepository;  
 
-        public InputController(IBaseService<Inventory> baseInventoryService,IBaseService<Input> baseInputService, IInputService inputService , IInputRepository inputRepository)
+        public InputController(IProductRepository productRepository, IBaseService<Inventory> baseInventoryService,IBaseService<Input> baseInputService, IInputService inputService , IInputRepository inputRepository)
         {
+            _productRepository = productRepository;
             _baseInventoryService = baseInventoryService;
             _baseInputService = baseInputService;
             _inputService = inputService;
@@ -51,6 +55,7 @@ namespace WebApi.Controllers
                     StartingQuantity = input.Quantity, 
                     TotalQuantity = input.Quantity,
                 };
+                Execute(() => _baseInputService.Add<InputValidator>(input).IdInput);
                 return Execute(() => _baseInventoryService.Add<InventoryValidator>(inventory).IdInventory);
 
 
@@ -61,7 +66,7 @@ namespace WebApi.Controllers
         [HttpGet]
         public IActionResult Get()
         {
-            return Execute(() => _baseInputService.Get());
+            return Execute(() => _inputRepository.GetInput());
         }
 
         //Retorna o produto da entrada pelo nome.
@@ -81,7 +86,7 @@ namespace WebApi.Controllers
             if (id == 0)
                 return NotFound();
 
-            return Execute(() => _baseInputService.GetById(id));
+            return Execute(() => _inputRepository.GetInputById(id));
         }
 
         //Método de executar os outros métodos e retornar exceções.

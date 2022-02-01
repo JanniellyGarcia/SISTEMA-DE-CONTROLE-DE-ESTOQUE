@@ -1,5 +1,6 @@
 ﻿using Domain.Interfaces;
 using Domain.Models;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Service.Interfaces;
 using Service.Validator;
@@ -7,6 +8,7 @@ using System;
 
 namespace WebApi.Controllers
 {
+    [AllowAnonymous]
     [Route("api/[controller]")]
     [ApiController]
     public class InventoryController : ControllerBase
@@ -26,7 +28,7 @@ namespace WebApi.Controllers
         [HttpGet]
         public IActionResult Get()
         {
-            return Execute(() => _baseInventoryService.Get());
+            return Execute(() => _inventoryRepository.Get());
         }
 
         // Método de selecionar o estoque pelo seu id.
