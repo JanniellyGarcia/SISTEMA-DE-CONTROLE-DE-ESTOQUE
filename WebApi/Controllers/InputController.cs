@@ -16,17 +16,15 @@ namespace WebApi.Controllers
         private IBaseService<Input> _baseInputService;
         private IBaseService<Inventory> _baseInventoryService;
         private IInputService _inputService;
-        private IInputRepository _inputRepository;
-        private IInventoryRepository _inventoryRepository;  
-        private IProductRepository _productRepository;  
+        private IInputRepository _inputRepository;  
 
-        public InputController(IProductRepository productRepository, IBaseService<Inventory> baseInventoryService,IBaseService<Input> baseInputService, IInputService inputService , IInputRepository inputRepository)
+        public InputController(IInputRepository inputRepository, IBaseService<Inventory> baseInventoryService,IBaseService<Input> baseInputService, IInputService inputService)
         {
-            _productRepository = productRepository;
+            _inputRepository = inputRepository;
             _baseInventoryService = baseInventoryService;
             _baseInputService = baseInputService;
             _inputService = inputService;
-            _inputRepository = inputRepository;
+           
         }
 
         // Criar a entrada.

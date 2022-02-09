@@ -14,18 +14,14 @@ namespace Service.Service
     // Service de Entrada (regras de negócio)
     public class InputService : IInputService 
     {
-        private readonly IBaseRepository<Input> _baseRepository;
         private IInputRepository _inputRepository;
         private readonly IMapper _mapper;
-        private ICompanyRepository _companyRepository;
         private IProductRepository _productRepository;
         private IInventoryRepository _inventoryRepository;
-        public InputService(IInventoryRepository inventoryRepository, IProductRepository productRepository, ICompanyRepository companyRepository, IBaseRepository<Input> baseRepository, IMapper mapper, IInputRepository inputRepository)
+        public InputService(IInventoryRepository inventoryRepository, IProductRepository productRepository,IMapper mapper, IInputRepository inputRepository)
         {
             _inventoryRepository = inventoryRepository;
             _productRepository = productRepository;
-            _companyRepository = companyRepository;
-            _baseRepository = baseRepository;
             _mapper = mapper;
             _inputRepository = inputRepository;
         }

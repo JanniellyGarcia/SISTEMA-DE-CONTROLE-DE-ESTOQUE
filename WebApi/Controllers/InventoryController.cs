@@ -14,13 +14,11 @@ namespace WebApi.Controllers
     public class InventoryController : ControllerBase
     {
         private IBaseService<Inventory> _baseInventoryService;
-        private IInventoryService _inventoryService;
         private IInventoryRepository _inventoryRepository;
 
-        public InventoryController(IBaseService<Inventory> baseInventoryService, IInventoryService inventoryService, IInventoryRepository inventoryRepository)
+        public InventoryController(IBaseService<Inventory> baseInventoryService, IInventoryRepository inventoryRepository)
         {
             _baseInventoryService = baseInventoryService;
-            _inventoryService = inventoryService;
             _inventoryRepository = inventoryRepository;
         }
 
